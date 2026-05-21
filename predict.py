@@ -6,30 +6,55 @@ from PIL import Image
 model = tf.keras.models.load_model("model/freshscan_model.h5")
 
 # Labels
-labels = ["apple", "banana", "potato", "tomato", "unknown"]
+labels = [
+    "FreshApple",
+    "FreshBanana",
+    "FreshMango",
+    "FreshPotato",
+    "FreshTomato",
+    "RottenApple",
+    "RottenBanana",
+    "RottenMango",
+    "RottenPotato",
+    "RottenTomato",
+    "unknown"
+]
 
 def predict_image(image):
 
-    # Resize image
-    image = image.resize((128, 128))
+    # Convert image to RGB
+    image = image.convert("RGB")
 
-    # Convert to array
-    image_array = np.array(image) / 255.0
+    # Resize image
+    image = image.resize((128,128))
+
+    # Convert image to numpy array
+    image_array = np.array(image,dtype=np.float32)
+
+    # Normalize image
+    image_array = image_array / 255.0
 
     # Add batch dimension
-    image_array = np.expand_dims(image_array, axis=0)
+    image_array = np.expand_dims(image_array,axis=0)
 
     # Prediction
-    prediction = model.predict(image_array)
+    prediction = model.predict(image_array,verbose=0)
 
-    # Highest probability index
+    # Predicted class index
     class_index = np.argmax(prediction)
 
     # Confidence score
-    confidence = np.max(prediction) * 100
+    confidence = float(np.max(prediction) * 100)
+
+    # Predicted label
+    predicted_label = labels[class_index]
 
     # Low confidence detection
-    if confidence < 90:
-        return "Unknown / Not Supported", confidence
+    if confidence < 65:
+        return "Unknown / Low Confidence",confidence
 
-    return labels[class_index], confidence
+    # Unknown class handling
+    if predicted_label == "unknown":
+        return "Unknown / Not Supported",confidence
+
+    return predicted_label,confidence

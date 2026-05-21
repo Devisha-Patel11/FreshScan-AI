@@ -3,10 +3,20 @@
 FreshScan AI is a Fruit and Vegetable Recognition System built using Python, TensorFlow, CNN, and Streamlit.
 
 ## Features
-- Fruit and vegetable image recognition
-- Supports Apple, Banana, Potato, Tomato
-- Unknown object detection
-- Confidence score
+
+- Fruit and vegetable freshness detection
+- Supports fresh and rotten classification for:
+  - Apple
+  - Banana
+  - Mango
+  - Potato
+  - Tomato
+- Unknown object handling
+- Image upload prediction
+- Webcam image capture
+- Confidence score display
+- Nutrition information
+- Light and dark theme support
 - Streamlit web app
 
 ## Tech Stack
