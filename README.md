@@ -30,6 +30,27 @@ https://freshscan-ai-929nlxx9nmhgebakgp7nhv.streamlit.app/
 - Pillow
 - Matplotlib
 
+## Screenshots
+
+### Home UI
+![Home UI](images/home-ui.png)
+
+### Fresh Prediction
+![Fresh Prediction](images/fresh-result.png)
+
+### Rotten Prediction
+![Rotten Prediction](images/rotten-result.png)
+
+### Unknown Object Detection
+![Unknown](images/unknown-result.png)
+
+### Mode(Upload Image/Use Camera)
+![Unknown](images/Mode.png)
+
+### Camera Mode
+![Unknown](images/camera-mode.png)
+
+
 ## How to Run
 
 ```bash
