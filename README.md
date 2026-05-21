@@ -2,6 +2,9 @@
 
 FreshScan AI is a Fruit and Vegetable Recognition System built using Python, TensorFlow, CNN, and Streamlit.
 
+## Live Demo
+https://freshscan-ai-929nlxx9nmhgebakgp7nhv.streamlit.app/
+
 ## Features
 
 - Fruit and vegetable freshness detection
